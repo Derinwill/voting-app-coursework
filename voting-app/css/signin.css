@@ -17,6 +17,8 @@ body{
      padding: 40px;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+
 header h1{
     font-weight: bolder;
     font-size: 43px;
@@ -30,7 +32,7 @@ section{
     justify-content: space-between;
     align-items: center;
     margin-left: 80px;
-    margin-top: 30px;
+  
 }
 .Terms{
     margin-left: 80px; 
@@ -53,6 +55,7 @@ section{
     padding: 16px 40px;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
 .Register_2{
     text-decoration-line: underline;
@@ -69,4 +72,22 @@ form input{
     padding: 10px;
     font-size: 13px;
 
+}
+
+form select{
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-top: 22px !important;
+    padding: 10px;
+    font-size: 13px;
+}
+
+
+.error{
+    color: red;
+    font-size: 16px;
+    margin-left: 80px;
+    margin-top: 10px;
 }

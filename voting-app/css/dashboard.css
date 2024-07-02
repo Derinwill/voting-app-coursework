@@ -3,14 +3,32 @@ p,h1{
     padding: 0;
 }
 body{
+    max-width: 100%;
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    
+}
+
+.wrapper{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
 }
 header{
     width: 100%;
     background-color: white;
     box-shadow: 0 5px 21px -5px #cdd1e1;
+    display: flex;
+    align-items: center;
+    padding-left: 27px;
+}
+
+.logo{
+font-size: 25px;
 }
 header img{
     cursor: pointer;
@@ -40,37 +58,63 @@ header img{
     font-size: 15px;
 }
 .container{
+
     width: 100%;
     background-color: #dddce1;
 }
 .display_flex{
     width: 100%;
     display: flex;
-    gap: 10rem;
+
     padding: 20px;
 }
-.sidebar p{
-    padding: 20px;
-    cursor: pointer;
-    font-size: 22px;
-    text-decoration: none;
-    color: #248afd;
-    transition: 0.3s ease-in-out;
+
+.profile_info{
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.profile_info .status{
+    color: #2c793c;
+    font-weight: 700;
+}
+.sidebar{
+    max-width: 240px;
+    width: 100%;
 }
 
 
 .sidebar a{
     text-decoration: none;
-    cursor: pointer;
-    padding: 20px;
-    font-size: 22px;
     color: #424242;
+}
+
+.sidebar p{
+    padding: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    text-decoration: none;
     transition: 0.3s ease-in-out;
+}
+
+
+.sidebar .active{
+    color: #248afd;
 }
 .container_content{
     width: 100%;
     
      
+}
+
+.content_flex{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .Dashboard{
     width: 90%;
@@ -97,17 +141,18 @@ header img{
 .main{
     width: 100%;
     display: flex;
-    gap: 3rem;
+    gap: 15px;
 }
 .sale_revenue_content{
     display: flex;
-    gap: 2.5rem;
+    gap: 15px;
 }
 .sale{
     width: 285px;
     background-color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .sale_1{
     font-weight: bold;
@@ -134,7 +179,8 @@ header img{
     width: 285px;
     background-color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .revenue_1{
     font-weight: bold;
@@ -158,9 +204,8 @@ header img{
 }
 .sales_details_box{
     background-color: white;
-    margin-top: 40px;
     padding: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(2, 0, 105, 0.19);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .sales_details{
     color: #787878;
@@ -196,7 +241,8 @@ header img{
     width: 285px;
     background-color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .download_1{
     font-weight: bold;
@@ -223,7 +269,7 @@ header img{
     width: 285px;
     background-color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .return_1{
     font-weight: bold;
@@ -249,7 +295,7 @@ header img{
     background-color: white;
     margin-top: 40px;
     padding: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(2, 0, 105, 0.19);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .purchases{
     color: #787878;
@@ -284,9 +330,9 @@ header img{
 .detailed{
     background-color: white;
     width: 88%;
-    margin-top: 40px;
+  
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(2, 0, 105, 0.19);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .detailed_reports{
     color:  #787878;

@@ -1,27 +1,44 @@
-p{
+p,h1{
     margin: 0;
     padding: 0;
-
 }
 body{
+    max-width: 100%;
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    
+}
+
+.wrapper{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
 }
 header{
     width: 100%;
     background-color: white;
     box-shadow: 0 5px 21px -5px #cdd1e1;
+    display: flex;
+    align-items: center;
+    padding-left: 27px;
+}
+
+.logo{
+font-size: 25px;
 }
 header img{
     cursor: pointer;
 }
 .top_bar{
-    width: 78%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-right: 50px;
+    margin-right: 40px;
     align-items: center;
     padding: 10px;
     background-color: white;
@@ -37,12 +54,64 @@ header img{
     width:  370px;
     border-radius: 2rem;
     border: 1px solid #c9ccd7;
-    padding-left: 40px;
+    padding-left: 30px;
     font-size: 15px;
 }
 .container{
+
     width: 100%;
-    background-color: #ffffff;
+    background-color: #dddce1;
+}
+.display_flex{
+    width: 100%;
+    display: flex;
+
+    padding: 20px;
+}
+
+.profile_info{
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.profile_info .status{
+    color: #2c793c;
+    font-weight: 700;
+}
+.sidebar{
+    max-width: 240px;
+    width: 100%;
+}
+
+
+.sidebar a{
+    text-decoration: none;
+    color: #424242;
+}
+
+.sidebar p{
+    padding: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+
+.sidebar .active{
+    color: #248afd;
+}
+.container_content{
+    width: 100%;
+     
+}
+.container{
+    width: 100%;
+    background-color: #dddce1;;
 }
 .display_flex{
     width: 100%;
@@ -69,7 +138,7 @@ header img{
     width: 100%;
 }
 .acc p{
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bolder;
     padding: 20px;
     color: #424242;
@@ -100,7 +169,7 @@ header img{
     
 }
 .personal_d{
-    font-size: 30px !important;
+    font-size: 20px !important;
     font-weight: bolder;
 }
 .personal_details p{
@@ -124,10 +193,10 @@ header img{
     gap: 50px;
 }
 .info label{
-    font-size: 23px;
+    font-size: 17px;
     width: 400px;
+    letter-spacing: 0.4px;
     display: inline-flex;
-    padding-top: 40px;
 }
 .cancel_save{
     width: 90%;
