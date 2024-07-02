@@ -1,0 +1,93 @@
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background: #f8f8f8;
+}
+.container{
+    width: 850px;
+     background-color: white;
+     margin: 0 auto;
+     margin-top: 200px;
+     border-radius: 14px;
+     padding: 40px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+header h1{
+    font-weight: bolder;
+    font-size: 43px;
+    margin-left: 80px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+section{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 80px;
+  
+}
+.Terms{
+    margin-left: 80px; 
+}
+.Terms span{
+    text-decoration-line: underline;
+}
+.Register{
+    width: 75%;
+    margin-top: 60px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.Register_1{
+    background-color: #6dabe4;
+    color: white;
+    padding: 16px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.Register_2{
+    text-decoration-line: underline;
+    font-size: 18px;
+}
+
+
+form input{
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-top: 22px !important;
+    padding: 10px;
+    font-size: 13px;
+
+}
+
+form select{
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-top: 22px !important;
+    padding: 10px;
+    font-size: 13px;
+}
+
+
+.error{
+    color: red;
+    font-size: 16px;
+    margin-left: 80px;
+    margin-top: 10px;
+}
