@@ -47,6 +47,7 @@
             <div class="display_flex">
                 <div class="sidebar">
                     <p><a href="./dashboard.php" class="active">Dashboard</a></p>
+                    <p><a href="./voters.php">Voters</a></p>
                     <p><a href="./account.php">Profile</a></p>
                     <p><a href="./logout.php">Logout</a></p>
                 </div>

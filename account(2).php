@@ -1,26 +1,36 @@
+<?php 
+      session_start(); 
+      require_once "conn.php";
+      if (!isset($_SESSION['email'])) {
+        header('location: signup.php');
+      }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>account(2)</title>
     <link rel="stylesheet" href="css/account(2).css">
 </head>
+
 <body>
     <header>
         <div class="top_bar">
             <div class="search_now">
-                <input placeholder="Search now" class="draft"/>
+                <input placeholder="Search now" class="draft" />
             </div>
             <div class="images">
-                <img src="images/face28.jpg" alt="face28">    
+                <img src="images/face28.jpg" alt="face28">
             </div>
         </div>
     </header>
     <div class="container">
         <div class="display_flex">
             <div class="sidebar">
-                 <a href="./dashboard.html">Dashboard</a>
+                <a href="./dashboard.html">Dashboard</a>
                 <p>Profile</p>
             </div>
             <div class="account">
@@ -28,7 +38,7 @@
                     <p>Account</p>
                 </div>
                 <div class="details">
-                     <a href="./account.html">Personal Details</a>
+                    <a href="./account.html">Personal Details</a>
                     <p class="change_password">Change password</p>
                     <p>Withdrawal setting</p>
                 </div>
@@ -48,15 +58,16 @@
                 </div>
                 <div class="cancel_save">
                     <div class="cancel">
-                         <button>Cancel</button>
+                        <button>Cancel</button>
                     </div>
                     <div class="save">
-                         <button>Save</button>
+                        <button>Save</button>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </body>
+
 </html>
