@@ -52,9 +52,11 @@
                     <p><a href="./logout.php">Logout</a></p>
                 </div>
                 <div class="container_content">
-
                     <div class="main">
+
                         <div class="content_flex">
+
+                            <?php if($user['userType'] === 'admin'): ?>
                             <div class="sale_revenue_content">
                                 <div class="sale">
                                     <div class="sale_1">
@@ -93,46 +95,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="sales_details_box">
-                                <div class="sales_details">
-                                    <p>SALES DETAILS</p>
+                            <?php endif; ?>
+
+                            <?php if($user['userType']=== 'voter' || $user['userType']=== 'election_officer'): ?>
+                            <div class="info_box">
+                                <div class="info_details">
+                                    <p>Welcome <?php echo $user['first_name'] ?>,</p>
                                 </div>
                                 <div class="details">
-                                    <p>Received overcame oh sensible so at an. Formed do change merely to</p>
-                                    <p>county it. Am separate contempt domestic to to oh. On relation my so</p>
-                                    <p>addition branched</p>
+                                    <p style="font-weight: bold;">Upcoming Elections</p>
+                                    <ul>
+                                        <li>31st of june 2025</li>
+                                        <li>7st of july 2025</li>
+                                        <li>31st of june 2025</li>
+                                    </ul>
                                 </div>
-                                <div class="dropdown_flex">
-                                    <div class="down_flex_1">
 
-                                    </div>
-                                    <div class="down_flex_1">
-                                        <p>Today</p>
-                                    </div>
-                                    <div class="down_flex_1">
-                                        <p>View all</p>
-                                    </div>
-                                </div>
                             </div>
+                            <?php endif; ?>
 
-                            <div class="main_2">
-                                <div class="detailed">
-                                    <div class="detailed_reports">
-                                        <p>DETAILED REPORTS</p>
-                                    </div>
-                                    <div class="report_numbers">
-                                        <h1>33500</h1>
-                                        <p>Sales</p>
-                                    </div>
-                                    <div class="report_info">
-                                        <p> The total number of sessions within the date range. It is</p>
-                                        <p>the period time a user is actively engaged with your</p>
 
-                                        <p>website, page or app, etc</p>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
 
                     </div>

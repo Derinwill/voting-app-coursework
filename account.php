@@ -129,6 +129,7 @@
                     $query = "SELECT * FROM users WHERE users.id =  $userId";
                     $results1 = mysqli_query($conn, $query);
                     $user = mysqli_fetch_assoc($results1);
+
                 
                 ?>
                     <p>status: <span class="status"><?php echo $user['userType'] ?></span> </p>
