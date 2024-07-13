@@ -47,7 +47,9 @@
             <div class="display_flex">
                 <div class="sidebar">
                     <p><a href="./dashboard.php" class="active">Dashboard</a></p>
+                    <?php if($user['userType'] === 'admin' || $user['userType'] === 'election_officer' ): ?>
                     <p><a href="./voters.php">Voters</a></p>
+                    <?php endif ?>
                     <p><a href="./account.php">Profile</a></p>
                     <p><a href="./logout.php">Logout</a></p>
                 </div>
@@ -57,13 +59,34 @@
                         <div class="content_flex">
 
                             <?php if($user['userType'] === 'admin'): ?>
+
+                            <?php 
+                                    
+                                    $userId = $_SESSION['id'];
+                                    $query4 = "SELECT COUNT(*) as total_admin FROM users WHERE users.userType = 'admin'";
+                                    $results1 = mysqli_query($conn, $query4);
+                                    $user4 = mysqli_fetch_assoc($results1);
+                                    $totalAdmin = $user4['total_admin'];
+
+
+                                    $query1 = "SELECT COUNT(*) as total_officer FROM users WHERE users.userType = 'election_officer'";
+                                    $results2 = mysqli_query($conn, $query1);
+                                    $user1 = mysqli_fetch_assoc($results2);
+                                    $totalOfficer = $user1['total_officer'];
+
+
+                                    $query2 = "SELECT COUNT(*) as total_voter FROM users WHERE users.userType = 'voter'";
+                                    $results3 = mysqli_query($conn, $query2);
+                                    $user5 = mysqli_fetch_assoc($results3);
+                                    $totalVoter = $user5['total_voter'];
+                                    ?>
                             <div class="sale_revenue_content">
                                 <div class="sale">
                                     <div class="sale_1">
-                                        <p>SALES</p>
+                                        <p>Total Admin</p>
                                     </div>
                                     <div class="sales_number">
-                                        <p>34040</p>
+                                        <p><?php echo   $totalAdmin; ?></p>
                                     </div>
                                     <div class="sales_percent">
                                         <p><span>0.12%</span></p>
@@ -72,10 +95,10 @@
                                 </div>
                                 <div class="revenue">
                                     <div class="revenue_1">
-                                        <p>REVENUE</p>
+                                        <p>Total Election Officer</p>
                                     </div>
                                     <div class="revenue_number">
-                                        <p>47033</p>
+                                        <p><?php echo $totalOfficer ?></p>
                                     </div>
                                     <div class="revenue_percent">
                                         <p><span>0.47%</span></p>
@@ -84,10 +107,10 @@
                                 </div>
                                 <div class="download">
                                     <div class="download_1">
-                                        <p>DOWNLOAD</p>
+                                        <p>Total Voters</p>
                                     </div>
                                     <div class="download_number">
-                                        <p>40016</p>
+                                        <p><?php echo  $totalVoter ?></p>
                                     </div>
                                     <div class="download_percent">
                                         <p><span>64.00%</span></p>

@@ -150,6 +150,9 @@
             <div class="display_flex">
                 <div class="sidebar">
                     <p><a href="./dashboard.php">Dashboard</a></p>
+                    <?php if($user['userType'] === 'admin' || $user['userType'] === 'election_officer' ): ?>
+                    <p><a href="./voters.php">Voters</a></p>
+                    <?php endif ?>
                     <p><a href="./account.php" class="active">Profile</a></p>
                     <p><a href="./logout.php">Logout</a></p>
                 </div>
