@@ -48,18 +48,25 @@
     <div class="wrapper">
         <header>
             <p class="logo">Voting Brook</p>
+            <?php 
+                $userId = $_SESSION['id'];
+                $query = "SELECT * FROM users WHERE users.id =  $userId";
+                $results1 = mysqli_query($conn, $query);
+                $user = mysqli_fetch_assoc($results1);
+            
+            ?>
             <div class="top_bar">
-                <div class="search_now">
-                    <input placeholder="Search now" class="draft" />
-                </div>
+
+                <form action="voters.php" method="get">
+                    <?php if($user['userType']=== 'admin'): ?>
+                    <div class="search_now">
+                        <input placeholder="Search now" class="draft" name="voter_name" />
+                    </div>
+                    <?php endif; ?>
+                </form>
+
                 <div class="profile_info">
-                    <?php 
-                    $userId = $_SESSION['id'];
-                    $query = "SELECT * FROM users WHERE users.id =  $userId";
-                    $results1 = mysqli_query($conn, $query);
-                    $user = mysqli_fetch_assoc($results1);
-                
-                ?>
+
                     <p>status: <span class="status"><?php echo $user['userType'] ?></span> </p>
                     <img src="images/face28.jpg" alt="face28">
                     <p> <?php echo $user['last_name'];?> <?php echo $user['first_name']; ?></p>
@@ -76,7 +83,14 @@
                 </div>
                 <div class="main">
                     <?php 
-                            $query = "SELECT * FROM users";
+                            $voterName = isset($_GET['voter_name']) ? $_GET['voter_name'] : null;
+                            $query = '';
+                             if(isset($voterName)){
+                                $query = "SELECT * FROM users where first_name LIKE '".$voterName."' or last_name LIKE '".$voterName."'";
+                             }else{
+                                $query = "SELECT * FROM users";
+                             }
+                            
                             if ($result = $conn ->query($query)) {
                                 while($row = $result -> fetch_assoc()){
                                             
@@ -92,12 +106,16 @@
                     
                     
                     ?>
+
                     <div class="card">
                         <div
                             style="position: absolute; display: flex; flex-direction: column; gap: 40px; top: 20px; right: 20px; z-index: 20;">
-                            <a style="font-size: 17px;" href="editVoter.php"><i
+                            <?php if($user['userType'] === 'admin'): ?>
+                            <a style="font-size: 17px;" href="editprofile.php?user_id=<?php echo $id; ?>"><i
                                     class="fa-solid fa-pen-to-square"></i></a>
-                            <a style="font-size: 17px;" href="delete.php"> <i class="fa-solid fa-trash"></i></a>
+                            <a style="font-size: 17px;" href="deleteVoter.php?id=<?php echo $id;  ?>"> <i
+                                    class="fa-solid fa-trash"></i></a>
+                            <?php endif; ?>
                         </div>
                         <?php if($profilePicture): ?>
                         <img src="./saved/<?php echo $profilePicture ?>" alt="John"
@@ -112,6 +130,7 @@
 
                         <a href="?id=<?php echo $id; ?>#demo-modal" class="btn"><button>View Profile</button></a>
                     </div>
+
 
                     <?php    } } ?>
                 </div>

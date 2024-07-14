@@ -25,18 +25,25 @@
     <div class="wrapper">
         <header>
             <p class="logo">Voting Brook</p>
-            <div class="top_bar">
-                <div class="search_now">
-                    <input placeholder="Search now" class="draft" />
-                </div>
-                <div class="profile_info">
-                    <?php 
+            <?php 
                     $userId = $_SESSION['id'];
                     $query = "SELECT * FROM users WHERE users.id =  $userId";
                     $results1 = mysqli_query($conn, $query);
                     $user = mysqli_fetch_assoc($results1);
                 
                 ?>
+            <div class="top_bar">
+
+                <form action="voters.php" method="get">
+                    <?php if($user['userType']=== 'admin'): ?>
+                    <div class="search_now">
+                        <input placeholder="Search now" class="draft" name="voter_name" />
+                    </div>
+                    <?php endif; ?>
+                </form>
+
+                <div class="profile_info">
+
                     <p>status: <span class="status"><?php echo $user['userType'] ?></span> </p>
                     <img src="images/face28.jpg" alt="face28">
                     <p> <?php echo $user['last_name'];?> <?php echo $user['first_name']; ?></p>

@@ -4,10 +4,11 @@
       if (!isset($_SESSION['email'])) {
         header('location: signup.php');
       }
-
+      
       $status = isset($_GET['status']) ? $_GET['status'] : NULL;
       if(isset($status) && $status === 'success'){
          echo '<script>alert("Account Updated")</script>';
+      
       }
  
  
@@ -16,7 +17,8 @@
       }
 
 
-      $userId =  $_SESSION['id'];
+     
+      $userId =  isset($_GET['user_id']) ? $_GET['user_id'] : null;
 
       $firstName="";
       $email="";
@@ -42,7 +44,7 @@
         }catch(Exception $e){
             echo $e;
             echo '<script>alert("An Error occured while getting using profile")</script>';
-            header('location: account.php?status=error');
+            
             return;
         }
 
@@ -71,12 +73,14 @@
         $query = null;
         if ( $filename !== null) {
             $query = "UPDATE users SET first_name = ?, last_name = ?, phoneNumber = ?, email = ?, address = ?, picture = ?, location = ? WHERE id = ?";
+            $idUser = $_GET['user_id'];
             try{
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param('sssssssi', $firstName, $lastName, $phoneNumber, $email, $address, $filename, $location, $userId);
+                $stmt->bind_param('sssssssi', $firstName, $lastName, $phoneNumber, $email, $address, $filename, $location,  $idUser);
                 $stmt->execute();
                 move_uploaded_file($tempname, $folder);
-                echo '<script>alert("Successfuls")</script>';
+              
+                header("location: voters.php");
               }catch(Exception $e){
                   echo $e;
                   echo '<script>alert("Image upload failed, Please try again")</script>';
@@ -85,13 +89,15 @@
               }
            
         } else {
+            $idUser = $_GET['user_id'];
             $query = "UPDATE users SET first_name = ?, last_name = ?, phoneNumber = ?, email = ?, address = ?, location = ? WHERE id = ?";
-
+            
             try{
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param('ssssssi', $firstName, $lastName, $phoneNumber, $email, $address, $location, $userId);
+                $stmt->bind_param('ssssssi', $firstName, $lastName, $phoneNumber, $email, $address, $location, $idUser);
                 $stmt->execute();
-                echo '<script>alert("Successful")</script>';
+              
+                header("location: voters.php");
               }catch(Exception $e){
                   echo $e;
                   echo '<script>alert("Image upload failed, Please try again")</script>';
@@ -121,7 +127,12 @@
     <div class="wrapper">
         <header>
             <p class="logo">Voting Brook</p>
-            <?php 
+            <div class="top_bar">
+                <div class="search_now">
+                    <input placeholder="Search now" class="draft" />
+                </div>
+                <div class="profile_info">
+                    <?php 
                     $userId = $_SESSION['id'];
                     $query = "SELECT * FROM users WHERE users.id =  $userId";
                     $results1 = mysqli_query($conn, $query);
@@ -129,19 +140,6 @@
 
                 
                 ?>
-            <div class="top_bar">
-
-
-                <form action="voters.php" method="get">
-                    <?php if($user['userType']=== 'admin'): ?>
-                    <div class="search_now">
-                        <input placeholder="Search now" class="draft" name="voter_name" />
-                    </div>
-                    <?php endif; ?>
-                </form>
-
-                <div class="profile_info">
-
                     <p>status: <span class="status"><?php echo $user['userType'] ?></span> </p>
                     <?php if($user['picture']): ?>
 
@@ -169,17 +167,14 @@
                 <form class="account" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
                     enctype="multipart/form-data">
                     <div class="acc">
-                        <p>Account</p>
+                        <p>Update User</p>
                     </div>
                     <div class="details">
-                        <p class="p_details">Personal Details</p>
+                        <!-- <p class="p_details">Personal Details</p> -->
                         <!-- <a href="./account(2).html">Change password</a> -->
 
                     </div>
-                    <div class="personal_details">
-                        <p class="personal_d">Personal details</p>
-                        <p>Manage your personal information.</p>
-                    </div>
+
                     <div class="info">
                         <label for="fname">Upload an Image</label>
                         <div style="display: flex; flex-direction: column; align-items: flex-start;">
@@ -206,7 +201,7 @@
                         <label for="number">Phone number</label>
                         <input type="text" id="Phonenumber" name="phoneNumber"
                             value="<?php echo $phoneNumber; ?>"><br><br>
-                        <label for="">Location</label>
+                        <label for="">Select Location</label>
                         <select name="location" required>
                             <option value="">Select Location</option>
                             <option value="bristol" <?php echo $location === 'bristol' ? 'selected' : '' ?>>Bristol

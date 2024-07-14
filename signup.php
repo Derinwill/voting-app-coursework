@@ -137,6 +137,8 @@
                     <button class="Register_1" type="submit" name="reg_user">
                         <p>Register</p>
                     </button>
+
+                    <a href="./signin.php">login</a>
                 </div>
 
 
