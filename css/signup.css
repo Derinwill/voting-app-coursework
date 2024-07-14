@@ -49,11 +49,7 @@ form{
 }
 .log_in{
     width: 50px;
-    background-color: #6dabe4;
-    color: white;
-    padding: 16px 30px;
-    border-radius: 5px;
-    cursor: pointer;
+
 
 }
 .info{
@@ -71,4 +67,12 @@ form{
     text-decoration-line: underline;
     font-size: 17px;
     cursor: pointer;
+}
+
+
+.error{
+    color: red;
+    font-size: 16px;
+ 
+    margin-top: 10px;
 }
