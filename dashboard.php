@@ -45,7 +45,7 @@
                 <div class="profile_info">
 
                     <p>status: <span class="status"><?php echo $user['userType'] ?></span> </p>
-                    <img src="images/face28.jpg" alt="face28">
+                    <img src="images/profile.jpg" alt="face28" width="20" height="20">
                     <p> <?php echo $user['last_name'];?> <?php echo $user['first_name']; ?></p>
                 </div>
             </div>

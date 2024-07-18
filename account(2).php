@@ -23,7 +23,7 @@
                 <input placeholder="Search now" class="draft" />
             </div>
             <div class="images">
-                <img src="images/face28.jpg" alt="face28">
+                <img src="images/profile.jpg" alt="face28">
             </div>
         </div>
     </header>

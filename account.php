@@ -148,7 +148,7 @@
                     <img src="./saved/<?php echo $user['picture'];?>" alt="profile_image" width="50" height="50"
                         style="border-radius: 50%;">
                     <?php else: ?>
-                    <img src="images/face28.jpg" alt="face28">
+                    <img src="images/profile.jpg" alt="face28" width="20" height="20">
 
                     <?php endif; ?>
 
